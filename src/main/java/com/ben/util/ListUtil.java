@@ -1,9 +1,11 @@
-package com.ben.common;
+package com.ben.util;
+
+import com.ben.common.ListNode;
 
 public class ListUtil {
 
-    public static ListNode createList(Integer... arr) {
-        if (arr.length == 0) {
+    public static ListNode create(Integer... arr) {
+        if (arr == null || arr.length == 0) {
             return null;
         }
 

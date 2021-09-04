@@ -1,4 +1,6 @@
-package com.ben.common;
+package com.ben.util;
+
+import com.ben.common.ListNode;
 
 import java.util.List;
 
@@ -19,9 +21,11 @@ public class PrintUtil {
         }
 
         StringBuilder sb = new StringBuilder();
-        for (int i : array) {
-            sb.append(i);
-            sb.append(list_seperator);
+        for (int i = 0, last = array.length - 1; i < array.length; i++) {
+            sb.append(array[i]);
+            if (i < last) {
+                sb.append(list_seperator);
+            }
         }
 
         System.out.println(sb.toString());
@@ -38,9 +42,11 @@ public class PrintUtil {
         }
 
         StringBuilder sb = new StringBuilder();
-        for (Object s : list) {
-            sb.append(s);
-            sb.append(list_seperator);
+        for (int i = 0, last = list.size() - 1; i < list.size(); i++) {
+            sb.append(list.get(i));
+            if (i < last) {
+                sb.append(list_seperator);
+            }
         }
 
         System.out.println(sb.toString());

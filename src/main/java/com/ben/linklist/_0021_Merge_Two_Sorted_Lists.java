@@ -1,22 +1,22 @@
 package com.ben.linklist;
 
 import com.ben.common.ListNode;
-import com.ben.common.ListUtil;
-import com.ben.common.PrintUtil;
+import com.ben.util.ListUtil;
+import com.ben.util.PrintUtil;
 
 public class _0021_Merge_Two_Sorted_Lists {
 
     public static void main(String[] args) {
 
-//        ListNode l1 = ListUtil.createList(1, 2, 4);
-//        ListNode l2 = ListUtil.createList(1, 3, 4);
+//        ListNode l1 = ListUtil.create(1, 2, 4);
+//        ListNode l2 = ListUtil.create(1, 3, 4);
 
-        ListNode l1 = ListUtil.createList(2);
-        ListNode l2 = ListUtil.createList(1);
+        ListNode l1 = ListUtil.create(2);
+        ListNode l2 = ListUtil.create(1);
 
-        ListNode res = mergeTwoLists(l1, l2);
+        ListNode head = mergeTwoLists(l1, l2);
 
-        PrintUtil.printListNode(res);
+        PrintUtil.printListNode(head);
     }
 
     static public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -31,16 +31,16 @@ public class _0021_Merge_Two_Sorted_Lists {
         ListNode c1 = l1;
         ListNode c2 = l2;
 
-        ListNode result;
+        ListNode head;
         if (c1.val <= c2.val) {
-            result = c1;
+            head = c1;
             c1 = c1.next;
         } else {
-            result = c2;
+            head = c2;
             c2 = c2.next;
         }
 
-        ListNode cur = result;
+        ListNode cur = head;
 
         while (c1 != null && c2 != null) {
             if (c1.val <= c2.val) {
@@ -61,6 +61,6 @@ public class _0021_Merge_Two_Sorted_Lists {
             cur.next = c2;
         }
 
-        return result;
+        return head;
     }
 }
