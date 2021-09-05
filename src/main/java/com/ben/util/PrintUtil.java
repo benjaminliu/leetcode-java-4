@@ -87,4 +87,12 @@ public class PrintUtil {
             System.out.println("List is null");
         }
     }
+
+    public static void printOneListNode(ListNode node) {
+        if (node != null) {
+            System.out.println(node.val);
+        } else {
+            System.out.println("List is null");
+        }
+    }
 }
