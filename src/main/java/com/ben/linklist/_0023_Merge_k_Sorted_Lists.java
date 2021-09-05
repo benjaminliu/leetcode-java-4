@@ -1,7 +1,7 @@
 package com.ben.linklist;
 
 import com.ben.common.ListNode;
-import com.ben.util.ListUtil;
+import com.ben.util.ListNodeUtil;
 import com.ben.util.PrintUtil;
 
 import java.util.Comparator;
@@ -11,9 +11,9 @@ public class _0023_Merge_k_Sorted_Lists {
 
     public static void main(String[] args) {
         ListNode[] lists = new ListNode[3];
-        lists[0] = ListUtil.create(1, 4, 5);
-        lists[1] = ListUtil.create(1, 3, 4);
-        lists[2] = ListUtil.create(2, 6);
+        lists[0] = ListNodeUtil.create(1, 4, 5);
+        lists[1] = ListNodeUtil.create(1, 3, 4);
+        lists[2] = ListNodeUtil.create(2, 6);
 
         ListNode res = mergeKLists(lists);
 

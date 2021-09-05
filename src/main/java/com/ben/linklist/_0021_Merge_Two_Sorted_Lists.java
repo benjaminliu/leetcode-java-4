@@ -1,18 +1,18 @@
 package com.ben.linklist;
 
 import com.ben.common.ListNode;
-import com.ben.util.ListUtil;
+import com.ben.util.ListNodeUtil;
 import com.ben.util.PrintUtil;
 
 public class _0021_Merge_Two_Sorted_Lists {
 
     public static void main(String[] args) {
 
-//        ListNode l1 = ListUtil.create(1, 2, 4);
-//        ListNode l2 = ListUtil.create(1, 3, 4);
+//        ListNode l1 = ListNodeUtil.create(1, 2, 4);
+//        ListNode l2 = ListNodeUtil.create(1, 3, 4);
 
-        ListNode l1 = ListUtil.create(2);
-        ListNode l2 = ListUtil.create(1);
+        ListNode l1 = ListNodeUtil.create(2);
+        ListNode l2 = ListNodeUtil.create(1);
 
         ListNode head = mergeTwoLists(l1, l2);
 

@@ -2,7 +2,7 @@ package com.ben.util;
 
 import com.ben.common.ListNode;
 
-public class ListUtil {
+public class ListNodeUtil {
 
     public static ListNode create(Integer... arr) {
         if (arr == null || arr.length == 0) {
