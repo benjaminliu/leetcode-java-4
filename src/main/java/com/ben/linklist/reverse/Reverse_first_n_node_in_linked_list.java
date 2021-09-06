@@ -10,7 +10,7 @@ public class Reverse_first_n_node_in_linked_list {
         ListNode head = ListNodeUtil.create(1, 2, 3, 4, 5, 6);
 //        ListNode head = ListNodeUtil.create(1, 2);
 
-        PrintUtil.printListNode(reverseN(head, 3));
+        PrintUtil.printListNode(reverseN(head, 7));
     }
 
     static ListNode successor = null;
@@ -19,6 +19,10 @@ public class Reverse_first_n_node_in_linked_list {
      * Recursive
      */
     static public ListNode reverseN(ListNode head, int n) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
         if (n == 1) {
             successor = head.next;
             return head;

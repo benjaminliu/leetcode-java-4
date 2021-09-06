@@ -9,7 +9,7 @@ public class _0206_Reverse_Linked_List {
         ListNode head = ListNodeUtil.create(1, 2, 3, 4, 5);
 //        ListNode head = ListNodeUtil.create(1, 2);
 
-        PrintUtil.printListNode(reverseList_2(head));
+        PrintUtil.printListNode(reverseList_1(head));
     }
 
     /**
@@ -55,18 +55,16 @@ public class _0206_Reverse_Linked_List {
             return head;
         }
 
-        ListNode next = head.next;
+        ListNode next;
         ListNode cur = head;
         ListNode pre = null;
 
-        while (next != null) {
+        while (cur != null) {
+            next = cur.next;
             cur.next = pre;
             pre = cur;
             cur = next;
-            next = next.next;
         }
-
-        cur.next = pre;
-        return cur;
+        return pre;
     }
 }
