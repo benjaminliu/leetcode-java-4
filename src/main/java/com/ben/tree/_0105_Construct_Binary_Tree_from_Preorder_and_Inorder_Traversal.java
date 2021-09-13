@@ -42,10 +42,10 @@ public class _0105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal {
             map.put(inorder[i], i);
         }
         preOrderCurIdx = 0;
-        return buildTree(preorder, inorder, map, 0, inorder.length - 1);
+        return buildTree(preorder, map, 0, inorder.length - 1);
     }
 
-    static public TreeNode buildTree(int[] preorder, int[] inorder, Map<Integer, Integer> map, int inOrderStart, int inOrderEnd) {
+    static public TreeNode buildTree(int[] preorder, Map<Integer, Integer> map, int inOrderStart, int inOrderEnd) {
         if (inOrderStart > inOrderEnd) {
             return null;
         }
@@ -54,8 +54,8 @@ public class _0105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal {
         TreeNode root = new TreeNode(rootValue);
         int inOrderCurIdx = map.get(rootValue);
 
-        root.left = buildTree(preorder, inorder, map, inOrderStart, inOrderCurIdx - 1);
-        root.right = buildTree(preorder, inorder, map, inOrderCurIdx + 1, inOrderEnd);
+        root.left = buildTree(preorder, map, inOrderStart, inOrderCurIdx - 1);
+        root.right = buildTree(preorder, map, inOrderCurIdx + 1, inOrderEnd);
         return root;
     }
 
