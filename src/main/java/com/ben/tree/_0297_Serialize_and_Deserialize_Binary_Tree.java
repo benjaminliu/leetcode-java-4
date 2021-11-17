@@ -60,29 +60,29 @@ public class _0297_Serialize_and_Deserialize_Binary_Tree {
         }
     }
 
-    static class InOrder {
-        // Encodes a tree to a single string.
-        public String serialize(TreeNode root) {
-
-        }
-
-
-        // Decodes your encoded data to tree.
-        public TreeNode deserialize(String data) {
-
-        }
-    }
-
-    static class PostOrder {
-        // Encodes a tree to a single string.
-        public String serialize(TreeNode root) {
-
-        }
-
-
-        // Decodes your encoded data to tree.
-        public TreeNode deserialize(String data) {
-
-        }
-    }
+//    static class InOrder {
+//        // Encodes a tree to a single string.
+//        public String serialize(TreeNode root) {
+//
+//        }
+//
+//
+//        // Decodes your encoded data to tree.
+//        public TreeNode deserialize(String data) {
+//
+//        }
+//    }
+//
+//    static class PostOrder {
+//        // Encodes a tree to a single string.
+//        public String serialize(TreeNode root) {
+//
+//        }
+//
+//
+//        // Decodes your encoded data to tree.
+//        public TreeNode deserialize(String data) {
+//
+//        }
+//    }
 }
