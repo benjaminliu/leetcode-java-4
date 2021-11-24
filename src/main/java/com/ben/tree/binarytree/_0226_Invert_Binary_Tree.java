@@ -1,4 +1,4 @@
-package com.ben.tree;
+package com.ben.tree.binarytree;
 
 import com.ben.common.TreeNode;
 import com.ben.util.TreeUtil;

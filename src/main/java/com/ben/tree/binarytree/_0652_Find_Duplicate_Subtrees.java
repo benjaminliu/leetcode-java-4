@@ -1,7 +1,6 @@
-package com.ben.tree;
+package com.ben.tree.binarytree;
 
 import com.ben.common.TreeNode;
-import com.ben.util.TreeUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
