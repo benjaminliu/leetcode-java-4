@@ -1,4 +1,4 @@
-package com.ben.template.dfs_backtracking;
+package com.ben.template.dfs.backtracking;
 
 import com.ben.util.PrintUtil;
 
