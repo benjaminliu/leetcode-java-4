@@ -28,98 +28,107 @@ public class _0105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal {
         int[] preorder = new int[]{3, 9, 20, 15, 7};
         int[] inorder = new int[]{9, 3, 15, 20, 7};
 
-        TreeNode root = buildTree(preorder, inorder);
+        TreeNode root = new Solution1().buildTree(preorder, inorder);
 
         System.out.println(root);
     }
 
-    //We increase preOrderCurIdx by 1 if we create a new root node (root node of the sub-tree)
-    static int preOrderCurIdx;
+    public static class Solution1 {
+        //We increase preOrderCurIdx by 1 if we create a new root node (root node of the sub-tree)
+        static int preOrderCurIdx;
 
-    static public TreeNode buildTree(int[] preorder, int[] inorder) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < inorder.length; i++) {
-            map.put(inorder[i], i);
-        }
-        preOrderCurIdx = 0;
-        return buildTree(preorder, map, 0, inorder.length - 1);
-    }
-
-    static public TreeNode buildTree(int[] preorder, Map<Integer, Integer> map, int inOrderStart, int inOrderEnd) {
-        if (inOrderStart > inOrderEnd) {
-            return null;
-        }
-
-        int rootValue = preorder[preOrderCurIdx++];
-        TreeNode root = new TreeNode(rootValue);
-        int inOrderCurIdx = map.get(rootValue);
-
-        root.left = buildTree(preorder, map, inOrderStart, inOrderCurIdx - 1);
-        root.right = buildTree(preorder, map, inOrderCurIdx + 1, inOrderEnd);
-        return root;
-    }
-
-
-    static public TreeNode buildTree2(int[] preorder, int[] inorder) {
-        return buildTree2(preorder, 0, preorder.length - 1,
-                inorder, 0, inorder.length - 1);
-    }
-
-    static public TreeNode buildTree2(int[] preOrder, int preStart, int preEnd,
-                                      int[] inOrder, int inStart, int inEnd) {
-        if (preStart > preEnd || inStart > inEnd) {
-            return null;
-        }
-
-        int rootValue = preOrder[preStart];
-
-        int inCurIdx = inStart;
-        for (; inCurIdx <= inEnd; inCurIdx++) {
-            if (inOrder[inCurIdx] == rootValue) {
-                break;
+        static public TreeNode buildTree(int[] preorder, int[] inorder) {
+            Map<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i < inorder.length; i++) {
+                map.put(inorder[i], i);
             }
+            preOrderCurIdx = 0;
+            return buildTree(preorder, map, 0, inorder.length - 1);
         }
 
-        TreeNode root = new TreeNode(rootValue);
-        int leftSubTreeSize = inCurIdx - inStart;
-        root.left = buildTree2(preOrder, preStart + 1, preStart + leftSubTreeSize, inOrder, inStart, inCurIdx - 1);
-        root.right = buildTree2(preOrder, preStart + leftSubTreeSize + 1, preEnd, inOrder, inCurIdx + 1, inEnd);
+        static public TreeNode buildTree(int[] preorder, Map<Integer, Integer> map, int inOrderStart, int inOrderEnd) {
+            if (inOrderStart > inOrderEnd) {
+                return null;
+            }
 
-        return root;
-    }
+            int rootValue = preorder[preOrderCurIdx++];
+            TreeNode root = new TreeNode(rootValue);
+            int inOrderCurIdx = map.get(rootValue);
 
-
-    static public TreeNode buildTree1(int[] preorder, int[] inorder) {
-        preOrderCurIdx = 0;
-        return buildTree1(preorder, inorder, 0, preorder.length - 1);
-    }
-
-    static public TreeNode buildTree1(int[] preOrder, int[] inOrder, int inOrderStart, int inOrderEnd) {
-        if (inOrderStart > inOrderEnd) {
-            return null;
-        }
-
-        //Create a root node of sub-tree, and move the preOrderCurIdx to next
-        int curValue = preOrder[preOrderCurIdx++];
-        TreeNode root = new TreeNode(curValue);
-
-        //No left or right sub-tree, just return
-        if (inOrderStart == inOrderEnd) {
+            root.left = buildTree(preorder, map, inOrderStart, inOrderCurIdx - 1);
+            root.right = buildTree(preorder, map, inOrderCurIdx + 1, inOrderEnd);
             return root;
         }
+    }
 
-        //We find the root in inOrder,  so we can split it into left sub-tree and right sub-tree
-        int inOrderCurIdx = inOrderStart;
-        for (; inOrderCurIdx <= inOrderEnd; inOrderCurIdx++) {
-            if (inOrder[inOrderCurIdx] == curValue) {
-                break;
-            }
+
+    public static class Solution2 {
+        static public TreeNode buildTree(int[] preorder, int[] inorder) {
+            return buildTree(preorder, 0, preorder.length - 1,
+                    inorder, 0, inorder.length - 1);
         }
 
-        root.left = buildTree1(preOrder, inOrder, inOrderStart, inOrderCurIdx - 1);
+        static public TreeNode buildTree(int[] preOrder, int preStart, int preEnd,
+                                         int[] inOrder, int inStart, int inEnd) {
+            if (preStart > preEnd || inStart > inEnd) {
+                return null;
+            }
 
-        root.right = buildTree1(preOrder, inOrder, inOrderCurIdx + 1, inOrderEnd);
+            int rootValue = preOrder[preStart];
 
-        return root;
+            int inCurIdx = inStart;
+            for (; inCurIdx <= inEnd; inCurIdx++) {
+                if (inOrder[inCurIdx] == rootValue) {
+                    break;
+                }
+            }
+
+            TreeNode root = new TreeNode(rootValue);
+            int leftSubTreeSize = inCurIdx - inStart;
+            root.left = buildTree(preOrder, preStart + 1, preStart + leftSubTreeSize, inOrder, inStart, inCurIdx - 1);
+            root.right = buildTree(preOrder, preStart + leftSubTreeSize + 1, preEnd, inOrder, inCurIdx + 1, inEnd);
+
+            return root;
+        }
+    }
+
+    public static class Solution3 {
+
+        //We increase preOrderCurIdx by 1 if we create a new root node (root node of the sub-tree)
+        static int preOrderCurIdx;
+
+        static public TreeNode buildTree(int[] preorder, int[] inorder) {
+            preOrderCurIdx = 0;
+            return buildTree(preorder, inorder, 0, preorder.length - 1);
+        }
+
+        static public TreeNode buildTree(int[] preOrder, int[] inOrder, int inOrderStart, int inOrderEnd) {
+            if (inOrderStart > inOrderEnd) {
+                return null;
+            }
+
+            //Create a root node of sub-tree, and move the preOrderCurIdx to next
+            int curValue = preOrder[preOrderCurIdx++];
+            TreeNode root = new TreeNode(curValue);
+
+            //No left or right sub-tree, just return
+            if (inOrderStart == inOrderEnd) {
+                return root;
+            }
+
+            //We find the root in inOrder,  so we can split it into left sub-tree and right sub-tree
+            int inOrderCurIdx = inOrderStart;
+            for (; inOrderCurIdx <= inOrderEnd; inOrderCurIdx++) {
+                if (inOrder[inOrderCurIdx] == curValue) {
+                    break;
+                }
+            }
+
+            root.left = buildTree(preOrder, inOrder, inOrderStart, inOrderCurIdx - 1);
+
+            root.right = buildTree(preOrder, inOrder, inOrderCurIdx + 1, inOrderEnd);
+
+            return root;
+        }
     }
 }
