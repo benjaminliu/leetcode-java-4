@@ -1,7 +1,9 @@
-package com.ben.template;
+package com.ben.template.dfs;
 
 // DFS 和 回溯算法
 public class DFS_BackTracking {
+
+    //DFS 的空间复杂度较低
 
     //回溯算法就是纯暴力穷举，复杂度一般都很高
 
