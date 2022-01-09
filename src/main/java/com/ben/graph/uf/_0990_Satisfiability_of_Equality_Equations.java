@@ -1,4 +1,4 @@
-package com.ben.graph.union.find;
+package com.ben.graph.uf;
 
 public class _0990_Satisfiability_of_Equality_Equations {
 
