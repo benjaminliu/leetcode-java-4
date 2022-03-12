@@ -10,6 +10,11 @@ public class PrintUtil {
 
     private static final String list_seperator = ", ";
 
+
+    public static void printLn(String x) {
+        System.out.println(x);
+    }
+
     public static void printLn(boolean x) {
         System.out.println(x);
     }
