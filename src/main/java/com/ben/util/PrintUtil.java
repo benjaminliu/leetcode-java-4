@@ -44,6 +44,24 @@ public class PrintUtil {
         System.out.println(sb.toString());
     }
 
+    public static void printArrayOfArray(int[][] arrays) {
+        if (arrays == null) {
+            System.out.println("Arrays is null");
+            return;
+        }
+        if (arrays.length == 0) {
+            System.out.println("Arrays is empty");
+        }
+
+
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0; j < arrays.length; j++) {
+            printArray(arrays[j]);
+        }
+
+        System.out.println(sb.toString());
+    }
+
     public static void printList(List<?> list) {
         if (list == null) {
             System.out.println("List is null");
