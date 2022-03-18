@@ -9,7 +9,7 @@ public class _0206_Reverse_Linked_List {
         ListNode head = ListNodeUtil.create(1, 2, 3, 4, 5);
 //        ListNode head = ListNodeUtil.create(1, 2);
 
-        PrintUtil.printListNode(new Solution1().reverseList(head));
+        PrintUtil.printListNode(new Solution4().reverseList(head));
     }
 
     public static class Solution1 {
@@ -70,6 +70,24 @@ public class _0206_Reverse_Linked_List {
                 pre = cur;
                 cur = next;
             }
+            return pre;
+        }
+    }
+
+
+    static class Solution4 {
+        public ListNode reverseList(ListNode head) {
+            ListNode cur = head;
+            ListNode pre = null;
+            ListNode next;
+
+            while (cur != null) {
+                next = cur.next;
+                cur.next = pre;
+                pre = cur;
+                cur = next;
+            }
+
             return pre;
         }
     }
