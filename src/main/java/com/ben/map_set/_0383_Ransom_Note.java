@@ -1,4 +1,4 @@
-package com.ben.hashtable;
+package com.ben.map_set;
 
 public class _0383_Ransom_Note {
 

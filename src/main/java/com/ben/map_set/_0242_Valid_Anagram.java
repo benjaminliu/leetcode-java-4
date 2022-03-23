@@ -1,4 +1,4 @@
-package com.ben.hashtable;
+package com.ben.map_set;
 
 import java.util.HashMap;
 import java.util.Map;
