@@ -21,16 +21,16 @@ public class _0028_Implement_strStr {
             char[] hChars = haystack.toCharArray();
             char[] pattern = needle.toCharArray();
             int[] next = getNext(pattern);
-            int j = 0;
+            int patternIdx = 0;
 
             for (int i = 0; i < haystack.length(); i++) {
-                while (j > 0 && hChars[i] != pattern[j]) {
-                    j = next[j - 1];
+                while (patternIdx > 0 && hChars[i] != pattern[patternIdx]) {
+                    patternIdx = next[patternIdx - 1];
                 }
-                if (hChars[i] == pattern[j]) {
-                    j++;
+                if (hChars[i] == pattern[patternIdx]) {
+                    patternIdx++;
                 }
-                if (j == needle.length()) {
+                if (patternIdx == needle.length()) {
                     return (i - needle.length() + 1);
                 }
             }
