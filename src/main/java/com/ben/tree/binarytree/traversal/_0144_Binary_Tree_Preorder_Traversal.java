@@ -1,28 +1,29 @@
-package com.ben.tree.binarytree;
+package com.ben.tree.binarytree.traversal;
 
 import com.ben.common.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
-public class _0094_Binary_Tree_Inorder_Traversal {
+public class _0144_Binary_Tree_Preorder_Traversal {
 
     class Solution {
-        public List<Integer> inorderTraversal(TreeNode root) {
+        public List<Integer> preorderTraversal(TreeNode root) {
             List<Integer> res = new ArrayList<>();
+
             if (root == null) {
                 return res;
             }
+
             helper(root, res);
             return res;
         }
 
         private void helper(TreeNode root, List<Integer> res) {
+            res.add(root.val);
             if (root.left != null) {
                 helper(root.left, res);
             }
-            res.add(root.val);
+
             if (root.right != null) {
                 helper(root.right, res);
             }
@@ -30,26 +31,27 @@ public class _0094_Binary_Tree_Inorder_Traversal {
     }
 
     class Solution2 {
-        public List<Integer> inorderTraversal(TreeNode root) {
+        public List<Integer> preorderTraversal(TreeNode root) {
             List<Integer> res = new ArrayList<>();
             if (root == null) {
                 return res;
             }
 
             Stack<TreeNode> stack = new Stack<>();
-            TreeNode cur = root;
+            stack.push(root);
 
-            while (cur != null || !stack.isEmpty()) {
-                if (cur != null) {
-                    stack.push(cur);
-                    cur = cur.left;
-                } else {
-                    cur = stack.pop();
-                    res.add(cur.val);
-                    cur = cur.right;
+            while (!stack.isEmpty()) {
+                TreeNode cur = stack.pop();
+                res.add(cur.val);
+
+                //Push right fist, because we use stack, and stack is LIFO
+                if (cur.right != null) {
+                    stack.push(cur.right);
+                }
+                if (cur.left != null) {
+                    stack.push(cur.left);
                 }
             }
-
             return res;
         }
     }

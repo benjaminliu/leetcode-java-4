@@ -1,4 +1,4 @@
-package com.ben.tree.binarytree;
+package com.ben.tree.binarytree.traversal;
 
 import com.ben.common.TreeNode;
 
