@@ -3,7 +3,7 @@ package com.ben.tree.binarytree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _0116_Populating_Next_Right_Pointers_in_Each_Node {
+public class _0116_m_Populating_Next_Right_Pointers_in_Each_Node {
 
 
     public static void main(String[] args) {
