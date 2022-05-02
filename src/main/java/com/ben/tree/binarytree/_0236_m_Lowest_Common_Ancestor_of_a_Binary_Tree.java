@@ -2,7 +2,7 @@ package com.ben.tree.binarytree;
 
 import com.ben.common.TreeNode;
 
-public class _0236_Lowest_Common_Ancestor_of_a_Binary_Tree {
+public class _0236_m_Lowest_Common_Ancestor_of_a_Binary_Tree {
 
     // Use post order traverse, search from leaf to root, from bottom to top
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
