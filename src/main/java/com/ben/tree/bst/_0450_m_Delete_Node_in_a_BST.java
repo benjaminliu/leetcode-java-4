@@ -2,7 +2,7 @@ package com.ben.tree.bst;
 
 import com.ben.common.TreeNode;
 
-public class _0450_Delete_Node_in_a_BST {
+public class _0450_m_Delete_Node_in_a_BST {
 
 
     static public TreeNode deleteNode(TreeNode root, int key) {
@@ -13,7 +13,8 @@ public class _0450_Delete_Node_in_a_BST {
         if (root.val == key) {
             if (root.left == null) {
                 return root.right;
-            } else if (root.right == null) {
+            }
+            if (root.right == null) {
                 return root.left;
             }
 
