@@ -2,7 +2,7 @@ package com.ben.tree.bst;
 
 import com.ben.common.TreeNode;
 
-public class _0538_Convert_BST_to_Greater_Tree {
+public class _0538_m_Convert_BST_to_Greater_Tree {
 
     public static void main(String[] args) {
 
