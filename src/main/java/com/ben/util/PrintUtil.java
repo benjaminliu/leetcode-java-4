@@ -44,19 +44,58 @@ public class PrintUtil {
         System.out.println(sb.toString());
     }
 
-    public static void printArrayOfArray(int[][] arrays) {
-        if (arrays == null) {
+    public static void printArray(char[] array) {
+        if (array == null) {
+            System.out.println("Array is null");
+            return;
+        }
+
+        if (array.length == 0) {
+            System.out.println("Array is empty");
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0, last = array.length - 1; i < array.length; i++) {
+            sb.append(array[i]);
+            if (i < last) {
+                sb.append(list_seperator);
+            }
+        }
+
+        System.out.println(sb.toString());
+    }
+
+    public static void printArrayOfArray(int[][] board) {
+        if (board == null) {
             System.out.println("Arrays is null");
             return;
         }
-        if (arrays.length == 0) {
+        if (board.length == 0) {
             System.out.println("Arrays is empty");
         }
 
 
         StringBuilder sb = new StringBuilder();
-        for (int j = 0; j < arrays.length; j++) {
-            printArray(arrays[j]);
+        for (int j = 0; j < board.length; j++) {
+            printArray(board[j]);
+        }
+
+        System.out.println(sb.toString());
+    }
+
+    public static void printArrayOfArray(char[][] board) {
+        if (board == null) {
+            System.out.println("Arrays is null");
+            return;
+        }
+        if (board.length == 0) {
+            System.out.println("Arrays is empty");
+        }
+
+
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0; j < board.length; j++) {
+            printArray(board[j]);
         }
 
         System.out.println(sb.toString());
