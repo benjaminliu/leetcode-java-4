@@ -9,7 +9,7 @@ public class _0_1_Pack {
         int[] value = new int[]{15, 20, 30};
         int bagSize = 4;
 
-        PrintUtil.printLn(new Solution2().weightBagProblem(weight, value, bagSize));
+        PrintUtil.printLn(new Solution3().weightBagProblem(weight, value, bagSize));
     }
 
     static class Solution {
@@ -68,5 +68,22 @@ public class _0_1_Pack {
 
             return dp[bagSize];
         }
+    }
+
+    static class Solution3 {
+        public int weightBagProblem(int[] weight, int[] value, int bagSize) {
+            int col = bagSize + 1;
+            int[] dp = new int[col];
+            for (int i = 0; i < weight.length; i++) {
+                for (int j = bagSize; j >= weight[i]; j--) {
+                    int previousBiggestWeight = dp[j];
+                    int newTotalWeight = dp[j - weight[i]] + value[i];
+                    dp[j] = Math.max(previousBiggestWeight, newTotalWeight);
+                }
+                PrintUtil.printArray(dp);
+            }
+            return dp[bagSize];
+        }
+
     }
 }
