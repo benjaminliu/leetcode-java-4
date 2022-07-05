@@ -1,8 +1,8 @@
-package com.ben.dp.pack.zero_one_pack;
+package com.ben.dp.knapsack.zero_one;
 
 import com.ben.util.PrintUtil;
 
-public class _0_1_Pack {
+public class _0_1_knapsack {
 
     public static void main(String[] args) {
         int[] weight = new int[]{1, 3, 4};

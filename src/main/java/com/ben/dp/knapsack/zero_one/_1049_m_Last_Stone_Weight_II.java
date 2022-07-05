@@ -1,4 +1,4 @@
-package com.ben.dp.pack.zero_one_pack;
+package com.ben.dp.knapsack.zero_one;
 
 import java.util.stream.IntStream;
 
