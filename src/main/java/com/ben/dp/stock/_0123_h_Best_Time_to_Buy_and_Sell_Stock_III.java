@@ -17,19 +17,20 @@ public class _0123_h_Best_Time_to_Buy_and_Sell_Stock_III {
                 return 0;
             }
 
-            int oneBuy = Integer.MAX_VALUE;
+            int oneBuyCost = Integer.MAX_VALUE;
             int oneBuyOneSellProfit = 0;
-            int twoBuy = Integer.MAX_VALUE;
+            int twoBuyCost = Integer.MAX_VALUE;
             int twoBuyTwoSellProfit = 0;
 
             for (int i = 0; i < prices.length; i++) {
                 int p = prices[i];
 
-                oneBuy = Math.min(oneBuy, p);
-                oneBuyOneSellProfit = Math.max(oneBuyOneSellProfit, p - oneBuy);
+                oneBuyCost = Math.min(oneBuyCost, p);
+                oneBuyOneSellProfit = Math.max(oneBuyOneSellProfit, p - oneBuyCost);
 
-                twoBuy = Math.min(twoBuy, p - oneBuyOneSellProfit);
-                twoBuyTwoSellProfit = Math.max(twoBuyTwoSellProfit, p - twoBuy);
+                //The cost of second buy = price - previous sell's profit
+                twoBuyCost = Math.min(twoBuyCost, p - oneBuyOneSellProfit);
+                twoBuyTwoSellProfit = Math.max(twoBuyTwoSellProfit, p - twoBuyCost);
             }
 
             return twoBuyTwoSellProfit;
