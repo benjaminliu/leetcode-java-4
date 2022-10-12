@@ -18,9 +18,6 @@ public class _0647_m_Palindromic_Substrings {
                             //such as  "abccba",  remove left and right letter, become "bccb"
                             dp[left][right] = dp[left + 1][right - 1];
                         }
-                    } else {
-                        //Not equal, cannot be palindromic
-                        dp[left][right] = false;
                     }
                 }
             }
