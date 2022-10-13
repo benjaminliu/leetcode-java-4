@@ -1,4 +1,4 @@
-package com.ben.dp;
+package com.ben.dp.palidrome;
 
 public class _0005_m_Longest_Palindromic_Substring {
 
